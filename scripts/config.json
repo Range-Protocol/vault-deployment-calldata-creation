@@ -1,0 +1,13 @@
+{
+  "multisig": "0xc4Cc24e55a966dB36f507B07fb5935E939bd7b95",
+  "factory": "0xf1e70677fb1f49471604c012e8B42BA11226336b",
+  "timelock": "0x21E0803103d3cf8Ab0755a02e9e4F55a5590E07F",
+  "manager": "0x84b43ce5fB1FAF013181FEA96ffA4af6179e396a",
+  "tokenA": "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
+  "tokenB": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  "fee": 10000,
+  "implementation": "0xe61bEAFfbC055FBa21C0075572794aF21A5ef416",
+  "name": "Range Uniswap ezETH/ETH 0.01% Pegged LP",
+  "symbol": "R-UNI",
+  "rpc": "https://eth.llamarpc.com"
+}

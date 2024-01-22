@@ -1,11 +1,12 @@
 require("@nomicfoundation/hardhat-toolbox");
+const configData = require("./scripts/config.json");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: "https://rpc.mantle.xyz"
+        url: configData.rpc
       }
     }
   },
