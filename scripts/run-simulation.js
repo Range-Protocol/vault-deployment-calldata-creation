@@ -42,15 +42,15 @@ async function main() {
 	const create_vault_data =
 		configData.fee !== 0
 			? CreateVaultInterface.encodeFunctionData("createVault", [
-				configData.tokenA,
-				configData.tokenB,
+				configData.token0,
+				configData.token1,
 				configData.fee,
 				configData.implementation,
 				init_data,
 			])
 			: CreateVaultInterfaceAlgebra.encodeFunctionData("createVault", [
-				configData.tokenA,
-				configData.tokenB,
+				configData.token0,
+				configData.token1,
 				configData.implementation,
 				init_data,
 			]);
