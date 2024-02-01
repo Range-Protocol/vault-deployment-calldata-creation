@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const { ethers } = require("hardhat");
+const {ethers} = require("hardhat");
 
 const configData = require("./config.json");
 
@@ -15,6 +15,9 @@ const CreateVaultInterfaceAlgebra = new ethers.Interface([
 ]);
 const IVaultCreatedEvent = new ethers.Interface([
 	"event VaultCreated(address indexed, address indexed)",
+]);
+const IAMMFactory = new ethers.Interface([
+	"function createPool(address tokenA, address tokenB,uint24 fee ) external"
 ]);
 const BYTES32 =
 	"0x0000000000000000000000000000000000000000000000000000000000000000";
@@ -34,11 +37,35 @@ async function main() {
 	]);
 	const sender = await ethers.provider.getSigner(configData.multisig);
 	
+	try {
+		await sender.sendTransaction({
+			to: configData.ammFactory,
+			data: IAMMFactory.encodeFunctionData("createPool", [
+				configData.token0,
+				configData.token1,
+				configData.fee
+			])
+		});
+	} catch (e) {
+		console.log(e);
+	}
+	
 	// prepare the timelock schedule data
-	const init_data = ethers.AbiCoder.defaultAbiCoder().encode(
-		["address", "string", "string"],
-		[configData.manager, configData.name, configData.symbol],
-	);
+	let init_data;
+	if (configData.name.includes("Pancakeswap")) {
+		console.log("pancake")
+		init_data = ethers.AbiCoder.defaultAbiCoder().encode(
+			["address", "string", "string", "address"],
+			[configData.manager, configData.name, configData.symbol, configData.WETH9],
+		);
+	}
+	else {
+		console.log("uniswap")
+		init_data = ethers.AbiCoder.defaultAbiCoder().encode(
+			["address", "string", "string"],
+			[configData.manager, configData.name, configData.symbol],
+		);
+	}
 	const create_vault_data =
 		configData.fee !== 0
 			? CreateVaultInterface.encodeFunctionData("createVault", [

@@ -1,13 +1,15 @@
 {
   "multisig": "0xc4Cc24e55a966dB36f507B07fb5935E939bd7b95",
   "factory": "0xf1e70677fb1f49471604c012e8B42BA11226336b",
+  "ammFactory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
   "timelock": "0x21E0803103d3cf8Ab0755a02e9e4F55a5590E07F",
   "manager": "0x84b43ce5fB1FAF013181FEA96ffA4af6179e396a",
-  "token0": "0x35fA164735182de50811E8e2E824cFb9B6118ac2",
-  "token1": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  "token0": "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7",
+  "token1": "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
   "fee": 100,
   "implementation": "0xe61bEAFfbC055FBa21C0075572794aF21A5ef416",
-  "name": "Range Uniswap eETH/WETH 0.01% Pegged LP",
+  "name": "Range Uniswap RSETH/ETHX 0.01% Pegged LP",
   "symbol": "R-UNI",
-  "rpc": "https://eth.llamarpc.com"
+  "rpc": "https://eth.llamarpc.com",
+  "WETH9": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 }
